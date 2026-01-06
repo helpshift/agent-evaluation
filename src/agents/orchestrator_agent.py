@@ -104,7 +104,7 @@ def save_results(results: list[dict], tool_context: ToolContext) -> str:
     Returns:
         Path to the saved results file
     """
-    results_path = Path(__file__).parent.parent / "tests" / "data" / "orchestrator_results.json"
+    results_path = Path(__file__).parent.parent.parent / "tests" / "data" / "orchestrator_results.json"
     
     summary = {
         "timestamp": datetime.now().isoformat(),
@@ -290,7 +290,7 @@ class EvaluationPipelineAgent(BaseAgent):
         print(summary)
         
         # Save results
-        results_path = Path(__file__).parent.parent / "tests" / "data" / "pipeline_results.json"
+        results_path = Path(__file__).parent.parent.parent / "tests" / "data" / "pipeline_results.json"
         with open(results_path, "w") as f:
             json.dump({
                 "timestamp": datetime.now().isoformat(),

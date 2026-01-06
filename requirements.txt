@@ -1,0 +1,22 @@
+# Core Dependencies
+google-cloud-aiplatform[evaluation,adk,agent_engines]>=1.50.0
+google-genai>=0.5.0
+vertexai>=1.50.0
+pydantic>=2.0.0
+
+# ADK
+google-adk>=0.1.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Optional: For local development
+# litellm>=1.0.0  # For third-party model evaluation (OpenAI, Anthropic, etc.)
