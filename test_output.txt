@@ -1,0 +1,498 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.14.1, pytest-9.0.2, pluggy-1.6.0 -- /Users/rinit.lulla/.pyenv/versions/3.14.1/bin/python3.14
+cachedir: .pytest_cache
+rootdir: /Users/rinit.lulla/Documents/GitHub/agent-evaluation
+plugins: anyio-4.12.0, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items
+
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case0] FAILED
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case1] FAILED
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case2] FAILED
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case3] FAILED
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case4] FAILED
+
+=================================== FAILURES ===================================
+____________________ test_evaluate_agent_interaction[case0] ____________________
+
+case = {'expected_response': 'The answer is 12.', 'expected_tools': ['add'], 'query': 'What is 5 plus 7?'}
+sample_agent = LlmAgent(name='calculator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+evaluator_agent = LlmAgent(name='evaluator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_a...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+session_service = <google.adk.sessions.in_memory_session_service.InMemorySessionService object at 0x12eaffa10>
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("case", load_dataset())
+    async def test_evaluate_agent_interaction(case, sample_agent, evaluator_agent, session_service):
+        user_query = case["query"]
+        expected_response = case["expected_response"]
+        expected_tools = case["expected_tools"]
+    
+        # --- Step 1: Run Sample Agent ---
+        sample_runner = Runner(agent=sample_agent, app_name="eval_test", session_service=session_service)
+        session_id = f"session_{hash(user_query)}" # Unique ID per test
+        await session_service.create_session(app_name="eval_test", user_id="test_user", session_id=session_id)
+    
+        user_content = types.Content(role='user', parts=[types.Part(text=user_query)])
+    
+        actual_response_text = ""
+        actual_tool_calls = []
+    
+        async for event in sample_runner.run_async(user_id="test_user", session_id=session_id, new_message=user_content):
+            # Inspect events for tool calls and final response
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.function_call:
+                        actual_tool_calls.append(part.function_call.name)
+                    if part.text:
+                        # Collect text (this might be intermediate thought or final response)
+                        # For simplicity, we assume the last text event is the final response or we accumulate
+                        # But usually, the final response event has is_final_response check or similar (if available)
+                        pass
+    
+            # ADK convention: Check if it's a model response (simplified logic)
+            # We'll just grab the text from the final event if possible, or accumulate
+>           if event.source == "model" and event.content: # Adjust based on exact ADK event structure
+               ^^^^^^^^^^^^
+
+tests/test_agent_eval.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Event(model_version='gemini-2.0-flash-exp', content=Content(
+  parts=[
+    Part(
+      function_call=FunctionCall(
+   ...one), long_running_tool_ids=set(), branch=None, id='6de29297-ab1f-4086-9e1b-39cfee0114bd', timestamp=1767684979.191809)
+item = 'source'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Event' object has no attribute 'source'
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/pydantic/main.py:1026: AttributeError
+------------------------------ Captured log call -------------------------------
+WARNING  google_genai.types:types.py:6587 Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+____________________ test_evaluate_agent_interaction[case1] ____________________
+
+case = {'expected_response': 'The result is 50.', 'expected_tools': ['multiply'], 'query': 'Calculate 10 times 5.'}
+sample_agent = LlmAgent(name='calculator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+evaluator_agent = LlmAgent(name='evaluator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_a...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+session_service = <google.adk.sessions.in_memory_session_service.InMemorySessionService object at 0x12ea7fd90>
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("case", load_dataset())
+    async def test_evaluate_agent_interaction(case, sample_agent, evaluator_agent, session_service):
+        user_query = case["query"]
+        expected_response = case["expected_response"]
+        expected_tools = case["expected_tools"]
+    
+        # --- Step 1: Run Sample Agent ---
+        sample_runner = Runner(agent=sample_agent, app_name="eval_test", session_service=session_service)
+        session_id = f"session_{hash(user_query)}" # Unique ID per test
+        await session_service.create_session(app_name="eval_test", user_id="test_user", session_id=session_id)
+    
+        user_content = types.Content(role='user', parts=[types.Part(text=user_query)])
+    
+        actual_response_text = ""
+        actual_tool_calls = []
+    
+        async for event in sample_runner.run_async(user_id="test_user", session_id=session_id, new_message=user_content):
+            # Inspect events for tool calls and final response
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.function_call:
+                        actual_tool_calls.append(part.function_call.name)
+                    if part.text:
+                        # Collect text (this might be intermediate thought or final response)
+                        # For simplicity, we assume the last text event is the final response or we accumulate
+                        # But usually, the final response event has is_final_response check or similar (if available)
+                        pass
+    
+            # ADK convention: Check if it's a model response (simplified logic)
+            # We'll just grab the text from the final event if possible, or accumulate
+>           if event.source == "model" and event.content: # Adjust based on exact ADK event structure
+               ^^^^^^^^^^^^
+
+tests/test_agent_eval.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Event(model_version='gemini-2.0-flash-exp', content=Content(
+  parts=[
+    Part(
+      function_call=FunctionCall(
+   ...one), long_running_tool_ids=set(), branch=None, id='586a8ecd-4569-4c6d-baf9-21879b58aa5f', timestamp=1767684982.458616)
+item = 'source'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Event' object has no attribute 'source'
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/pydantic/main.py:1026: AttributeError
+____________________ test_evaluate_agent_interaction[case2] ____________________
+
+case = {'expected_response': 'I cannot divide by zero.', 'expected_tools': ['divide'], 'query': 'What is 100 divided by 0?'}
+sample_agent = LlmAgent(name='calculator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+evaluator_agent = LlmAgent(name='evaluator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_a...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+session_service = <google.adk.sessions.in_memory_session_service.InMemorySessionService object at 0x12ed2c190>
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("case", load_dataset())
+    async def test_evaluate_agent_interaction(case, sample_agent, evaluator_agent, session_service):
+        user_query = case["query"]
+        expected_response = case["expected_response"]
+        expected_tools = case["expected_tools"]
+    
+        # --- Step 1: Run Sample Agent ---
+        sample_runner = Runner(agent=sample_agent, app_name="eval_test", session_service=session_service)
+        session_id = f"session_{hash(user_query)}" # Unique ID per test
+        await session_service.create_session(app_name="eval_test", user_id="test_user", session_id=session_id)
+    
+        user_content = types.Content(role='user', parts=[types.Part(text=user_query)])
+    
+        actual_response_text = ""
+        actual_tool_calls = []
+    
+        async for event in sample_runner.run_async(user_id="test_user", session_id=session_id, new_message=user_content):
+            # Inspect events for tool calls and final response
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.function_call:
+                        actual_tool_calls.append(part.function_call.name)
+                    if part.text:
+                        # Collect text (this might be intermediate thought or final response)
+                        # For simplicity, we assume the last text event is the final response or we accumulate
+                        # But usually, the final response event has is_final_response check or similar (if available)
+                        pass
+    
+            # ADK convention: Check if it's a model response (simplified logic)
+            # We'll just grab the text from the final event if possible, or accumulate
+>           if event.source == "model" and event.content: # Adjust based on exact ADK event structure
+               ^^^^^^^^^^^^
+
+tests/test_agent_eval.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Event(model_version='gemini-2.0-flash-exp', content=Content(
+  parts=[
+    Part(
+      function_call=FunctionCall(
+   ...one), long_running_tool_ids=set(), branch=None, id='b4c332c1-4567-4c87-9cbe-4929d8575185', timestamp=1767684986.038249)
+item = 'source'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Event' object has no attribute 'source'
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/pydantic/main.py:1026: AttributeError
+____________________ test_evaluate_agent_interaction[case3] ____________________
+
+case = {'expected_response': 'It is 30.', 'expected_tools': ['subtract'], 'query': 'Subtract 20 from 50.'}
+sample_agent = LlmAgent(name='calculator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+evaluator_agent = LlmAgent(name='evaluator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_a...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+session_service = <google.adk.sessions.in_memory_session_service.InMemorySessionService object at 0x12ef0d810>
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("case", load_dataset())
+    async def test_evaluate_agent_interaction(case, sample_agent, evaluator_agent, session_service):
+        user_query = case["query"]
+        expected_response = case["expected_response"]
+        expected_tools = case["expected_tools"]
+    
+        # --- Step 1: Run Sample Agent ---
+        sample_runner = Runner(agent=sample_agent, app_name="eval_test", session_service=session_service)
+        session_id = f"session_{hash(user_query)}" # Unique ID per test
+        await session_service.create_session(app_name="eval_test", user_id="test_user", session_id=session_id)
+    
+        user_content = types.Content(role='user', parts=[types.Part(text=user_query)])
+    
+        actual_response_text = ""
+        actual_tool_calls = []
+    
+        async for event in sample_runner.run_async(user_id="test_user", session_id=session_id, new_message=user_content):
+            # Inspect events for tool calls and final response
+            if event.content and event.content.parts:
+                for part in event.content.parts:
+                    if part.function_call:
+                        actual_tool_calls.append(part.function_call.name)
+                    if part.text:
+                        # Collect text (this might be intermediate thought or final response)
+                        # For simplicity, we assume the last text event is the final response or we accumulate
+                        # But usually, the final response event has is_final_response check or similar (if available)
+                        pass
+    
+            # ADK convention: Check if it's a model response (simplified logic)
+            # We'll just grab the text from the final event if possible, or accumulate
+>           if event.source == "model" and event.content: # Adjust based on exact ADK event structure
+               ^^^^^^^^^^^^
+
+tests/test_agent_eval.py:59: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Event(model_version='gemini-2.0-flash-exp', content=Content(
+  parts=[
+    Part(
+      function_call=FunctionCall(
+   ...one), long_running_tool_ids=set(), branch=None, id='1c6111c8-6945-4907-88f6-1c4a9505e124', timestamp=1767684989.352901)
+item = 'source'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra and item in pydantic_extra:
+                return pydantic_extra[item]
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Event' object has no attribute 'source'
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/pydantic/main.py:1026: AttributeError
+____________________ test_evaluate_agent_interaction[case4] ____________________
+
+case = {'expected_response': 'I can only help with math questions.', 'expected_tools': [], 'query': 'Who is the president of France?'}
+sample_agent = LlmAgent(name='calculator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+evaluator_agent = LlmAgent(name='evaluator_agent', description='', parent_agent=None, sub_agents=[], before_agent_callback=None, after_a...back=None, after_model_callback=None, before_tool_callback=None, after_tool_callback=None, on_tool_error_callback=None)
+session_service = <google.adk.sessions.in_memory_session_service.InMemorySessionService object at 0x12ef0f820>
+
+    @pytest.mark.asyncio
+    @pytest.mark.parametrize("case", load_dataset())
+    async def test_evaluate_agent_interaction(case, sample_agent, evaluator_agent, session_service):
+        user_query = case["query"]
+        expected_response = case["expected_response"]
+        expected_tools = case["expected_tools"]
+    
+        # --- Step 1: Run Sample Agent ---
+        sample_runner = Runner(agent=sample_agent, app_name="eval_test", session_service=session_service)
+        session_id = f"session_{hash(user_query)}" # Unique ID per test
+        await session_service.create_session(app_name="eval_test", user_id="test_user", session_id=session_id)
+    
+        user_content = types.Content(role='user', parts=[types.Part(text=user_query)])
+    
+        actual_response_text = ""
+        actual_tool_calls = []
+    
+>       async for event in sample_runner.run_async(user_id="test_user", session_id=session_id, new_message=user_content):
+
+tests/test_agent_eval.py:45: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/runners.py:443: in run_async
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/runners.py:427: in _run_with_trace
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/runners.py:653: in _exec_with_plugin
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/runners.py:416: in execute
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/agents/base_agent.py:294: in run_async
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/agents/llm_agent.py:435: in _run_async_impl
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:356: in run_async
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:433: in _run_one_step_async
+    async for llm_response in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:804: in _call_llm_async
+    async for event in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:788: in _call_llm_with_tracing
+    async for llm_response in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:998: in _run_and_handle_error
+    raise model_error
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/flows/llm_flows/base_llm_flow.py:982: in _run_and_handle_error
+    async for response in agen:
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/models/google_llm.py:181: in generate_content_async
+    response = await self.api_client.aio.models.generate_content(
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/models.py:7021: in generate_content
+    return await self._generate_content(
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/models.py:5839: in _generate_content
+    response = await self._api_client.async_request(
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/_api_client.py:1434: in async_request
+    result = await self._async_request(
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/_api_client.py:1367: in _async_request
+    return await self._async_retry(  # type: ignore[no-any-return]
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/asyncio/__init__.py:111: in __call__
+    do = await self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/asyncio/__init__.py:153: in iter
+    result = await action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/_utils.py:99: in inner
+    return call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/__init__.py:420: in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/__init__.py:187: in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/concurrent/futures/_base.py:443: in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/concurrent/futures/_base.py:395: in __get_result
+    raise self._exception
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/tenacity/asyncio/__init__.py:114: in __call__
+    result = await fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/_api_client.py:1312: in _async_request_once
+    await errors.APIError.raise_for_async_response(response)
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/errors.py:188: in raise_for_async_response
+    await cls.raise_error_async(status_code, response_json, response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+cls = <class 'google.genai.errors.APIError'>, status_code = 429
+response_json = {'error': {'code': 429, 'message': 'Quota exceeded for aiplatform.googleapis.com/generate_content_requests_per_minute_...ncrease request. https://cloud.google.com/vertex-ai/docs/generative-ai/quotas-genai.', 'status': 'RESOURCE_EXHAUSTED'}}
+response = <ClientResponse(https://us-central1-aiplatform.googleapis.com/v1beta1/projects/product-research-460317/locations/us-ce...ype-Options': 'nosniff', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'Transfer-Encoding': 'chunked')>
+
+
+    @classmethod
+    async def raise_error_async(
+        cls, status_code: int, response_json: Any, response: Optional[
+            Union['ReplayResponse', httpx.Response, 'aiohttp.ClientResponse']
+        ]
+    ) -> None:
+      """Raises an appropriate APIError subclass based on the status code.
+    
+      Args:
+        status_code: The HTTP status code of the response.
+        response_json: The JSON body of the response, or a dict containing error
+          details.
+        response: The original response object.
+    
+      Raises:
+        ClientError: If the status code is in the 4xx range.
+        ServerError: If the status code is in the 5xx range.
+        APIError: For other error status codes.
+      """
+      if 400 <= status_code < 500:
+>       raise ClientError(status_code, response_json, response)
+E       google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Quota exceeded for aiplatform.googleapis.com/generate_content_requests_per_minute_per_project_per_base_model with base model: gemini-experimental. Please submit a quota increase request. https://cloud.google.com/vertex-ai/docs/generative-ai/quotas-genai.', 'status': 'RESOURCE_EXHAUSTED'}}
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/errors.py:210: ClientError
+=============================== warnings summary ===============================
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/types.py:43
+  /Users/rinit.lulla/.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/types.py:43: DeprecationWarning: '_UnionGenericAlias' is deprecated and slated for removal in Python 3.17
+    VersionedUnionType = Union[builtin_types.UnionType, _UnionGenericAlias]
+
+../../../.pyenv/versions/3.14.1/lib/python3.14/site-packages/fastapi/_compat/v1.py:72
+  /Users/rinit.lulla/.pyenv/versions/3.14.1/lib/python3.14/site-packages/fastapi/_compat/v1.py:72: UserWarning: Core Pydantic V1 functionality isn't compatible with Python 3.14 or greater.
+    from pydantic.v1 import BaseConfig as BaseConfig  # type: ignore[assignment]
+
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case0]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case1]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case2]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case3]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case4]
+  /Users/rinit.lulla/.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/adk/runners.py:1268: DeprecationWarning: deprecated
+    save_input_blobs_as_artifacts=run_config.save_input_blobs_as_artifacts,
+
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case0]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case1]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case2]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case3]
+tests/test_agent_eval.py::test_evaluate_agent_interaction[case4]
+  /Users/rinit.lulla/.pyenv/versions/3.14.1/lib/python3.14/site-packages/google/genai/_api_client.py:744: DeprecationWarning: Inheritance class AiohttpClientSession from ClientSession is discouraged
+    class AiohttpClientSession(aiohttp.ClientSession):  # type: ignore[misc]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_agent_eval.py::test_evaluate_agent_interaction[case0] - Att...
+FAILED tests/test_agent_eval.py::test_evaluate_agent_interaction[case1] - Att...
+FAILED tests/test_agent_eval.py::test_evaluate_agent_interaction[case2] - Att...
+FAILED tests/test_agent_eval.py::test_evaluate_agent_interaction[case3] - Att...
+FAILED tests/test_agent_eval.py::test_evaluate_agent_interaction[case4] - goo...
+======================= 5 failed, 12 warnings in 18.16s ========================

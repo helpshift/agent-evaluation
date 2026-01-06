@@ -1,0 +1,27 @@
+[
+    {
+        "query": "What is 5 plus 7?",
+        "expected_response": "The answer is 12.",
+        "expected_tools": ["add"]
+    },
+    {
+        "query": "Calculate 10 times 5.",
+        "expected_response": "The result is 50.",
+        "expected_tools": ["multiply"]
+    },
+    {
+        "query": "What is 100 divided by 0?",
+        "expected_response": "I cannot divide by zero.",
+        "expected_tools": ["divide"]
+    },
+    {
+        "query": "Subtract 20 from 50.",
+        "expected_response": "It is 30.",
+        "expected_tools": ["subtract"]
+    },
+    {
+        "query": "Who is the president of France?",
+        "expected_response": "I can only help with math questions.",
+        "expected_tools": []
+    }
+]
