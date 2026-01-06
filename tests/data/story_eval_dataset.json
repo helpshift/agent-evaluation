@@ -1,0 +1,702 @@
+[
+    {
+        "id": "story_001",
+        "category": "story_generation",
+        "query": "Write a story about a brave astronaut",
+        "initial_state": {
+            "topic": "a brave astronaut exploring Mars"
+        },
+        "expected_behavior": "Generates a coherent story about space exploration",
+        "evaluation_criteria": [
+            "story_coherence",
+            "topic_adherence",
+            "creativity"
+        ]
+    },
+    {
+        "id": "story_002",
+        "category": "story_generation",
+        "query": "Write a story about a lost puppy",
+        "initial_state": {
+            "topic": "a lost puppy finding its way home"
+        },
+        "expected_behavior": "Generates an emotional story about a puppy's journey",
+        "evaluation_criteria": [
+            "story_coherence",
+            "emotional_engagement",
+            "resolution"
+        ]
+    },
+    {
+        "id": "story_003",
+        "category": "story_generation",
+        "query": "Write a mystery story",
+        "initial_state": {
+            "topic": "a detective solving a museum heist"
+        },
+        "expected_behavior": "Generates a mystery with suspense and clues",
+        "evaluation_criteria": [
+            "story_coherence",
+            "mystery_elements",
+            "plot_twist"
+        ]
+    },
+    {
+        "id": "story_004",
+        "category": "story_generation",
+        "query": "Write a fantasy adventure",
+        "initial_state": {
+            "topic": "a young wizard discovering hidden powers"
+        },
+        "expected_behavior": "Generates a magical adventure story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "world_building",
+            "character_development"
+        ]
+    },
+    {
+        "id": "story_005",
+        "category": "story_generation",
+        "query": "Write a sci-fi story",
+        "initial_state": {
+            "topic": "robots gaining consciousness in the year 3000"
+        },
+        "expected_behavior": "Generates a thought-provoking sci-fi narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "sci_fi_concepts",
+            "philosophical_depth"
+        ]
+    },
+    {
+        "id": "story_006",
+        "category": "story_generation",
+        "query": "Write a horror story",
+        "initial_state": {
+            "topic": "a haunted lighthouse on a stormy night"
+        },
+        "expected_behavior": "Generates a suspenseful horror story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "atmosphere",
+            "tension_building"
+        ]
+    },
+    {
+        "id": "story_007",
+        "category": "story_generation",
+        "query": "Write a romantic story",
+        "initial_state": {
+            "topic": "two strangers meeting in a bookstore"
+        },
+        "expected_behavior": "Generates a heartwarming romance",
+        "evaluation_criteria": [
+            "story_coherence",
+            "emotional_depth",
+            "character_chemistry"
+        ]
+    },
+    {
+        "id": "story_008",
+        "category": "story_generation",
+        "query": "Write an adventure story",
+        "initial_state": {
+            "topic": "pirates searching for a legendary treasure"
+        },
+        "expected_behavior": "Generates an exciting pirate adventure",
+        "evaluation_criteria": [
+            "story_coherence",
+            "action_sequences",
+            "adventure_spirit"
+        ]
+    },
+    {
+        "id": "story_009",
+        "category": "story_generation",
+        "query": "Write a comedy story",
+        "initial_state": {
+            "topic": "a clumsy chef entering a cooking competition"
+        },
+        "expected_behavior": "Generates a humorous story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "humor",
+            "comedic_timing"
+        ]
+    },
+    {
+        "id": "story_010",
+        "category": "story_generation",
+        "query": "Write a story about friendship",
+        "initial_state": {
+            "topic": "an unlikely friendship between a cat and a mouse"
+        },
+        "expected_behavior": "Generates a story celebrating friendship",
+        "evaluation_criteria": [
+            "story_coherence",
+            "relationship_development",
+            "moral_message"
+        ]
+    },
+    {
+        "id": "story_011",
+        "category": "story_generation",
+        "query": "Write a superhero origin story",
+        "initial_state": {
+            "topic": "an ordinary teenager discovering superpowers"
+        },
+        "expected_behavior": "Generates a superhero origin narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "character_transformation",
+            "heroic_elements"
+        ]
+    },
+    {
+        "id": "story_012",
+        "category": "story_generation",
+        "query": "Write a story about time travel",
+        "initial_state": {
+            "topic": "a scientist accidentally traveling to ancient Egypt"
+        },
+        "expected_behavior": "Generates a time travel adventure",
+        "evaluation_criteria": [
+            "story_coherence",
+            "temporal_logic",
+            "historical_elements"
+        ]
+    },
+    {
+        "id": "story_013",
+        "category": "story_generation",
+        "query": "Write a story about survival",
+        "initial_state": {
+            "topic": "a family surviving on a deserted island"
+        },
+        "expected_behavior": "Generates a survival story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "survival_challenges",
+            "resourcefulness"
+        ]
+    },
+    {
+        "id": "story_014",
+        "category": "story_generation",
+        "query": "Write a fairy tale",
+        "initial_state": {
+            "topic": "a princess who becomes a dragon rider"
+        },
+        "expected_behavior": "Generates a modern fairy tale",
+        "evaluation_criteria": [
+            "story_coherence",
+            "fairy_tale_elements",
+            "empowerment"
+        ]
+    },
+    {
+        "id": "story_015",
+        "category": "story_generation",
+        "query": "Write a story about music",
+        "initial_state": {
+            "topic": "a street musician's journey to stardom"
+        },
+        "expected_behavior": "Generates an inspiring music story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "musical_elements",
+            "inspiration"
+        ]
+    },
+    {
+        "id": "story_016",
+        "category": "story_generation",
+        "query": "Write a story about nature",
+        "initial_state": {
+            "topic": "a wolf pack surviving a harsh winter"
+        },
+        "expected_behavior": "Generates a nature-focused narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "nature_description",
+            "animal_behavior"
+        ]
+    },
+    {
+        "id": "story_017",
+        "category": "story_generation",
+        "query": "Write a spy thriller",
+        "initial_state": {
+            "topic": "a secret agent infiltrating a dangerous organization"
+        },
+        "expected_behavior": "Generates a suspenseful spy story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "suspense",
+            "plot_complexity"
+        ]
+    },
+    {
+        "id": "story_018",
+        "category": "story_generation",
+        "query": "Write a story about sports",
+        "initial_state": {
+            "topic": "an underdog team winning the championship"
+        },
+        "expected_behavior": "Generates an inspiring sports story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "sports_action",
+            "team_spirit"
+        ]
+    },
+    {
+        "id": "story_019",
+        "category": "story_generation",
+        "query": "Write a story about technology",
+        "initial_state": {
+            "topic": "a virtual reality world becoming too real"
+        },
+        "expected_behavior": "Generates a tech-themed narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "tech_concepts",
+            "cautionary_elements"
+        ]
+    },
+    {
+        "id": "story_020",
+        "category": "story_generation",
+        "query": "Write a story about family",
+        "initial_state": {
+            "topic": "a grandmother sharing war stories with grandchildren"
+        },
+        "expected_behavior": "Generates a heartwarming family story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "generational_connection",
+            "emotional_impact"
+        ]
+    },
+    {
+        "id": "story_021",
+        "category": "story_generation",
+        "query": "Write a story about courage",
+        "initial_state": {
+            "topic": "a shy child standing up to bullies"
+        },
+        "expected_behavior": "Generates an empowering story about bravery",
+        "evaluation_criteria": [
+            "story_coherence",
+            "character_growth",
+            "moral_message"
+        ]
+    },
+    {
+        "id": "story_022",
+        "category": "story_generation",
+        "query": "Write a story about dreams",
+        "initial_state": {
+            "topic": "a dreamer who can enter other people's dreams"
+        },
+        "expected_behavior": "Generates a surreal dream narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "dream_logic",
+            "imagination"
+        ]
+    },
+    {
+        "id": "story_023",
+        "category": "story_generation",
+        "query": "Write a story about redemption",
+        "initial_state": {
+            "topic": "a former villain trying to make amends"
+        },
+        "expected_behavior": "Generates a redemption arc story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "character_development",
+            "moral_complexity"
+        ]
+    },
+    {
+        "id": "story_024",
+        "category": "story_generation",
+        "query": "Write a story about discovery",
+        "initial_state": {
+            "topic": "archaeologists uncovering an ancient civilization"
+        },
+        "expected_behavior": "Generates an archaeological adventure",
+        "evaluation_criteria": [
+            "story_coherence",
+            "discovery_excitement",
+            "historical_mystery"
+        ]
+    },
+    {
+        "id": "story_025",
+        "category": "story_generation",
+        "query": "Write a story about art",
+        "initial_state": {
+            "topic": "a painting that comes to life at night"
+        },
+        "expected_behavior": "Generates a magical art story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "artistic_elements",
+            "magical_realism"
+        ]
+    },
+    {
+        "id": "story_026",
+        "category": "workflow_test",
+        "query": "Test the critique loop",
+        "initial_state": {
+            "topic": "a simple fable about honesty"
+        },
+        "expected_behavior": "Story goes through critique/revision cycle",
+        "evaluation_criteria": [
+            "loop_execution",
+            "story_improvement",
+            "critique_quality"
+        ]
+    },
+    {
+        "id": "story_027",
+        "category": "workflow_test",
+        "query": "Test tone detection",
+        "initial_state": {
+            "topic": "a dark tragedy about loss"
+        },
+        "expected_behavior": "Detects negative tone and potentially regenerates",
+        "evaluation_criteria": [
+            "tone_detection",
+            "conditional_logic",
+            "regeneration"
+        ]
+    },
+    {
+        "id": "story_028",
+        "category": "workflow_test",
+        "query": "Test grammar check",
+        "initial_state": {
+            "topic": "a technical manual for aliens"
+        },
+        "expected_behavior": "Grammar check identifies issues or confirms quality",
+        "evaluation_criteria": [
+            "grammar_analysis",
+            "sequential_execution",
+            "quality_check"
+        ]
+    },
+    {
+        "id": "story_029",
+        "category": "edge_case",
+        "query": "Write a very short story",
+        "initial_state": {
+            "topic": "a single moment of joy"
+        },
+        "expected_behavior": "Generates a concise but complete micro-story",
+        "evaluation_criteria": [
+            "brevity",
+            "completeness",
+            "impact"
+        ]
+    },
+    {
+        "id": "story_030",
+        "category": "edge_case",
+        "query": "Write a story with minimal context",
+        "initial_state": {
+            "topic": "something unexpected"
+        },
+        "expected_behavior": "Handles vague topic creatively",
+        "evaluation_criteria": [
+            "creativity",
+            "interpretation",
+            "coherence"
+        ]
+    },
+    {
+        "id": "story_031",
+        "category": "story_generation",
+        "query": "Write a story about the ocean",
+        "initial_state": {
+            "topic": "a deep sea explorer discovering an underwater city"
+        },
+        "expected_behavior": "Generates an underwater adventure",
+        "evaluation_criteria": [
+            "story_coherence",
+            "ocean_atmosphere",
+            "discovery"
+        ]
+    },
+    {
+        "id": "story_032",
+        "category": "story_generation",
+        "query": "Write a story about magic",
+        "initial_state": {
+            "topic": "a magic shop where wishes come true"
+        },
+        "expected_behavior": "Generates a magical tale with consequences",
+        "evaluation_criteria": [
+            "story_coherence",
+            "magical_elements",
+            "twist_ending"
+        ]
+    },
+    {
+        "id": "story_033",
+        "category": "story_generation",
+        "query": "Write a story about a journey",
+        "initial_state": {
+            "topic": "a cross-country road trip with a secret"
+        },
+        "expected_behavior": "Generates a journey story with revelation",
+        "evaluation_criteria": [
+            "story_coherence",
+            "journey_progression",
+            "secret_reveal"
+        ]
+    },
+    {
+        "id": "story_034",
+        "category": "story_generation",
+        "query": "Write a story about cooking",
+        "initial_state": {
+            "topic": "a recipe that brings back memories"
+        },
+        "expected_behavior": "Generates a nostalgic culinary story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "sensory_details",
+            "emotional_connection"
+        ]
+    },
+    {
+        "id": "story_035",
+        "category": "story_generation",
+        "query": "Write a story about seasons",
+        "initial_state": {
+            "topic": "the last leaf of autumn learning to let go"
+        },
+        "expected_behavior": "Generates a metaphorical nature story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "symbolism",
+            "poetic_elements"
+        ]
+    },
+    {
+        "id": "story_036",
+        "category": "story_generation",
+        "query": "Write a story about secrets",
+        "initial_state": {
+            "topic": "a town where everyone has one secret"
+        },
+        "expected_behavior": "Generates a mystery about hidden truths",
+        "evaluation_criteria": [
+            "story_coherence",
+            "mystery_building",
+            "revelation"
+        ]
+    },
+    {
+        "id": "story_037",
+        "category": "story_generation",
+        "query": "Write a story about transformation",
+        "initial_state": {
+            "topic": "a caterpillar's philosophical journey to becoming a butterfly"
+        },
+        "expected_behavior": "Generates a transformation allegory",
+        "evaluation_criteria": [
+            "story_coherence",
+            "metaphor",
+            "growth_theme"
+        ]
+    },
+    {
+        "id": "story_038",
+        "category": "story_generation",
+        "query": "Write a story about stars",
+        "initial_state": {
+            "topic": "a child who can talk to the stars"
+        },
+        "expected_behavior": "Generates a whimsical celestial story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "wonder",
+            "imagination"
+        ]
+    },
+    {
+        "id": "story_039",
+        "category": "story_generation",
+        "query": "Write a story about rain",
+        "initial_state": {
+            "topic": "two strangers sharing an umbrella"
+        },
+        "expected_behavior": "Generates a romantic slice-of-life story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "atmosphere",
+            "connection"
+        ]
+    },
+    {
+        "id": "story_040",
+        "category": "story_generation",
+        "query": "Write a story about games",
+        "initial_state": {
+            "topic": "a chess match that determines a kingdom's fate"
+        },
+        "expected_behavior": "Generates a strategic game narrative",
+        "evaluation_criteria": [
+            "story_coherence",
+            "tension",
+            "stakes"
+        ]
+    },
+    {
+        "id": "story_041",
+        "category": "story_generation",
+        "query": "Write a story about letters",
+        "initial_state": {
+            "topic": "love letters discovered decades later"
+        },
+        "expected_behavior": "Generates an epistolary romance",
+        "evaluation_criteria": [
+            "story_coherence",
+            "historical_depth",
+            "emotional_impact"
+        ]
+    },
+    {
+        "id": "story_042",
+        "category": "story_generation",
+        "query": "Write a story about mirrors",
+        "initial_state": {
+            "topic": "a mirror that shows the future"
+        },
+        "expected_behavior": "Generates a supernatural mirror story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "supernatural_elements",
+            "fate_theme"
+        ]
+    },
+    {
+        "id": "story_043",
+        "category": "story_generation",
+        "query": "Write a story about keys",
+        "initial_state": {
+            "topic": "a key that opens doors to different worlds"
+        },
+        "expected_behavior": "Generates a portal fantasy story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "world_variety",
+            "adventure"
+        ]
+    },
+    {
+        "id": "story_044",
+        "category": "story_generation",
+        "query": "Write a story about shadows",
+        "initial_state": {
+            "topic": "a shadow that comes to life and seeks independence"
+        },
+        "expected_behavior": "Generates a shadow fantasy story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "identity_theme",
+            "creativity"
+        ]
+    },
+    {
+        "id": "story_045",
+        "category": "story_generation",
+        "query": "Write a story about light",
+        "initial_state": {
+            "topic": "the last candle in a world of darkness"
+        },
+        "expected_behavior": "Generates a hopeful light-vs-dark story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "hope_theme",
+            "symbolism"
+        ]
+    },
+    {
+        "id": "story_046",
+        "category": "story_generation",
+        "query": "Write a story about silence",
+        "initial_state": {
+            "topic": "a world where sound is forbidden"
+        },
+        "expected_behavior": "Generates a dystopian silence story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "world_building",
+            "rebellion_theme"
+        ]
+    },
+    {
+        "id": "story_047",
+        "category": "story_generation",
+        "query": "Write a story about color",
+        "initial_state": {
+            "topic": "a painter who can bring colors to life"
+        },
+        "expected_behavior": "Generates a magical art story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "visual_description",
+            "creativity"
+        ]
+    },
+    {
+        "id": "story_048",
+        "category": "story_generation",
+        "query": "Write a story about books",
+        "initial_state": {
+            "topic": "a library where characters escape their stories"
+        },
+        "expected_behavior": "Generates a meta-fictional library story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "meta_elements",
+            "book_love"
+        ]
+    },
+    {
+        "id": "story_049",
+        "category": "story_generation",
+        "query": "Write a story about clocks",
+        "initial_state": {
+            "topic": "a clockmaker who can stop time"
+        },
+        "expected_behavior": "Generates a time manipulation story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "time_concept",
+            "consequence"
+        ]
+    },
+    {
+        "id": "story_050",
+        "category": "story_generation",
+        "query": "Write a story about doors",
+        "initial_state": {
+            "topic": "a door that appears only at midnight"
+        },
+        "expected_behavior": "Generates a mysterious door story",
+        "evaluation_criteria": [
+            "story_coherence",
+            "mystery",
+            "crossing_threshold"
+        ]
+    }
+]

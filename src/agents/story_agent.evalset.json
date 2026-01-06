@@ -1,0 +1,399 @@
+{
+    "eval_set_id": "story_flow_agent_eval_set",
+    "name": "StoryFlowAgent Evaluation Set",
+    "description": "Comprehensive evaluation set for the StoryFlowAgent testing story generation, critique/revision loop, tone detection, and multi-agent coordination.",
+    "eval_cases": [
+        {
+            "eval_id": "basic_story_generation",
+            "conversation": [
+                {
+                    "invocation_id": "inv-001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Write a story about a brave knight"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "A story about a brave knight who overcomes challenges with courage and honor."
+                            }
+                        ],
+                        "role": null
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [],
+                        "intermediate_responses": [
+                            [
+                                "StoryGenerator",
+                                [
+                                    {
+                                        "text": "Initial story draft about a knight"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Critic",
+                                [
+                                    {
+                                        "text": "The story needs more character development"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Reviser",
+                                [
+                                    {
+                                        "text": "Revised story with improved character"
+                                    }
+                                ]
+                            ],
+                            [
+                                "GrammarCheck",
+                                [
+                                    {
+                                        "text": "Grammar is good!"
+                                    }
+                                ]
+                            ],
+                            [
+                                "ToneCheck",
+                                [
+                                    {
+                                        "text": "positive"
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "story_flow_agent",
+                "user_id": "eval_user",
+                "state": {
+                    "topic": "a brave knight"
+                }
+            }
+        },
+        {
+            "eval_id": "critique_loop_test",
+            "conversation": [
+                {
+                    "invocation_id": "inv-002",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Write a story about space exploration"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "An astronaut discovers alien life on Mars, changing humanity's understanding of the universe."
+                            }
+                        ],
+                        "role": null
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [
+                            {
+                                "id": "tool-exit-loop-001",
+                                "name": "exit_loop",
+                                "args": {}
+                            }
+                        ],
+                        "intermediate_responses": [
+                            [
+                                "StoryGenerator",
+                                [
+                                    {
+                                        "text": "Initial space story"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Critic",
+                                [
+                                    {
+                                        "text": "No major issues found."
+                                    }
+                                ]
+                            ],
+                            [
+                                "Reviser",
+                                [
+                                    {
+                                        "text": "Story approved, calling exit_loop"
+                                    }
+                                ]
+                            ],
+                            [
+                                "GrammarCheck",
+                                [
+                                    {
+                                        "text": "Grammar is good!"
+                                    }
+                                ]
+                            ],
+                            [
+                                "ToneCheck",
+                                [
+                                    {
+                                        "text": "positive"
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "story_flow_agent",
+                "user_id": "eval_user",
+                "state": {
+                    "topic": "space exploration"
+                }
+            }
+        },
+        {
+            "eval_id": "tone_detection_positive",
+            "conversation": [
+                {
+                    "invocation_id": "inv-003",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Write a happy story about a puppy"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "A joyful puppy finds a loving home and makes everyone happy."
+                            }
+                        ],
+                        "role": null
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [],
+                        "intermediate_responses": [
+                            [
+                                "StoryGenerator",
+                                [
+                                    {
+                                        "text": "Happy puppy story"
+                                    }
+                                ]
+                            ],
+                            [
+                                "GrammarCheck",
+                                [
+                                    {
+                                        "text": "Grammar is good!"
+                                    }
+                                ]
+                            ],
+                            [
+                                "ToneCheck",
+                                [
+                                    {
+                                        "text": "positive"
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "story_flow_agent",
+                "user_id": "eval_user",
+                "state": {
+                    "topic": "a happy puppy"
+                }
+            }
+        },
+        {
+            "eval_id": "grammar_check_test",
+            "conversation": [
+                {
+                    "invocation_id": "inv-004",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Write a story about a detective"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "Detective Holmes solved the museum heist with brilliant deduction."
+                            }
+                        ],
+                        "role": null
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [],
+                        "intermediate_responses": [
+                            [
+                                "StoryGenerator",
+                                [
+                                    {
+                                        "text": "Detective story draft"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Critic",
+                                [
+                                    {
+                                        "text": "Add more suspense"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Reviser",
+                                [
+                                    {
+                                        "text": "Revised with suspense"
+                                    }
+                                ]
+                            ],
+                            [
+                                "GrammarCheck",
+                                [
+                                    {
+                                        "text": "Grammar is good!"
+                                    }
+                                ]
+                            ],
+                            [
+                                "ToneCheck",
+                                [
+                                    {
+                                        "text": "neutral"
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "story_flow_agent",
+                "user_id": "eval_user",
+                "state": {
+                    "topic": "a detective solving a mystery"
+                }
+            }
+        },
+        {
+            "eval_id": "multi_turn_refinement",
+            "conversation": [
+                {
+                    "invocation_id": "inv-005",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Write a fantasy story about a wizard"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": "Young wizard Elara discovered her hidden powers and saved the kingdom from darkness."
+                            }
+                        ],
+                        "role": null
+                    },
+                    "intermediate_data": {
+                        "tool_uses": [
+                            {
+                                "id": "tool-exit-loop-002",
+                                "name": "exit_loop",
+                                "args": {}
+                            }
+                        ],
+                        "intermediate_responses": [
+                            [
+                                "StoryGenerator",
+                                [
+                                    {
+                                        "text": "Initial wizard story"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Critic",
+                                [
+                                    {
+                                        "text": "Needs more magical elements"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Reviser",
+                                [
+                                    {
+                                        "text": "Added magical elements"
+                                    }
+                                ]
+                            ],
+                            [
+                                "Critic",
+                                [
+                                    {
+                                        "text": "No major issues found."
+                                    }
+                                ]
+                            ],
+                            [
+                                "Reviser",
+                                [
+                                    {
+                                        "text": "Story finalized"
+                                    }
+                                ]
+                            ],
+                            [
+                                "GrammarCheck",
+                                [
+                                    {
+                                        "text": "Grammar is good!"
+                                    }
+                                ]
+                            ],
+                            [
+                                "ToneCheck",
+                                [
+                                    {
+                                        "text": "positive"
+                                    }
+                                ]
+                            ]
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "story_flow_agent",
+                "user_id": "eval_user",
+                "state": {
+                    "topic": "a young wizard discovering hidden powers"
+                }
+            }
+        }
+    ]
+}

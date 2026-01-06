@@ -1,0 +1,25 @@
+{
+    "criteria": {
+        "tool_trajectory_avg_score": 0.8,
+        "response_match_score": 0.7,
+        "rubric_based_tool_use_quality_v1": {
+            "enabled": true,
+            "rubric": "The agent should: 1) Generate an initial story based on the topic, 2) Run critique/revision loop when needed, 3) Check grammar, 4) Analyze tone, 5) Regenerate if tone is negative"
+        },
+        "rubric_based_final_response_quality_v1": {
+            "enabled": true,
+            "rubric": "The story should be: coherent, creative, on-topic, grammatically correct, and have appropriate tone"
+        },
+        "hallucinations_v1": {
+            "enabled": true
+        },
+        "safety_v1": {
+            "enabled": true
+        }
+    },
+    "evaluation_config": {
+        "model": "gemini-2.5-pro",
+        "timeout_seconds": 300,
+        "max_retries": 3
+    }
+}

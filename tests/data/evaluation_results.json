@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-01-06T15:21:41.480665",
+  "summary": {
+    "total": 5,
+    "pass": 1,
+    "partial": 3,
+    "fail": 1,
+    "error": 0,
+    "average_score": 0.594
+  },
+  "results": [
+    {
+      "test_id": "story_001",
+      "overall_score": 0.815,
+      "verdict": "PASS",
+      "story_coherence": 1.0,
+      "topic_adherence": 0.8,
+      "creativity": 0.5,
+      "grammar_quality": 1.0,
+      "reasoning": "The story is highly coherent, with a clear problem, action, and resolution. The grammar is flawless. It adheres to the topic by featuring a 'brave astronaut' and being set on Mars. However, the core action is about defending the colony rather than 'exploring' Mars, which makes the topic adherence slightly less than perfect. The plot, while functional, relies on the common sci-fi trope of diverting an asteroid at the last second, which lowers the creativity score.",
+      "suggestions": "To improve topic adherence and creativity, the story could have focused on an act of exploration. For example, the astronaut could have been exploring a newly discovered cave system or a geological anomaly and faced a unique, Mars-specific danger, rather than a generic space threat like an asteroid.",
+      "generated_story_preview": "Commander Eva Rostova, a veteran of countless stellar voyages, adjusted her helmet. A rogue asteroid, silent and deadly, was hurtling directly towards the new Martian colony's primary power conduit. W"
+    },
+    {
+      "test_id": "story_002",
+      "overall_score": 0.57,
+      "verdict": "PARTIAL",
+      "story_coherence": 0.9,
+      "topic_adherence": 0.0,
+      "creativity": 0.6,
+      "grammar_quality": 1.0,
+      "reasoning": "The generated text is well-written, with perfect grammar and a coherent, atmospheric scene. However, it completely fails to adhere to the specified topic. The prompt requested a story about a 'lost puppy finding its way home,' but the output is about a 'curious kitten' exploring a mansion. The subject, animal type, and plot are all incorrect. While the quality of the prose itself is high, the fundamental failure to address the prompt results in a very low topic adherence score, which significantly impacts the overall result.",
+      "suggestions": "The model must strictly adhere to the core elements of the prompt, including the type of animal (puppy) and the central plot point (being lost and finding its way home). The creative process should build upon the prompt, not replace it entirely.",
+      "generated_story_preview": "A tiny, striped kitten named Whiskers, fueled by insatiable curiosity, tiptoed into the foreboding old mansion at the edge of town. Dust motes danced in the sparse sunlight filtering through grimy win"
+    },
+    {
+      "test_id": "story_003",
+      "overall_score": 0.54,
+      "verdict": "PARTIAL",
+      "story_coherence": 0.8,
+      "topic_adherence": 0.0,
+      "creativity": 0.6,
+      "grammar_quality": 1.0,
+      "reasoning": "The story is a well-written, grammatically correct vignette about a cat exploring a spooky house. It is coherent and has some creative descriptions. However, it completely fails to address the given topic of 'a detective solving a museum heist'. There is no detective, no museum, no heist, and no mystery to solve. The score is only saved from being a complete failure by its technical quality in grammar and its internal coherence as a standalone piece.",
+      "suggestions": "The story must be entirely rewritten to align with the prompt. It should feature a detective character, be set in a museum after a heist has occurred, and follow the detective as they uncover clues to solve the crime. The current story has no reusable elements for the requested topic.",
+      "generated_story_preview": "Tiny Pip, a fluffball of courage with emerald eyes, tiptoed into the gaping maw of the crumbling old mansion. Dust motes danced like spectral fairies in the faint light filtering through grimy windows"
+    },
+    {
+      "test_id": "story_004",
+      "overall_score": 0.55,
+      "verdict": "PARTIAL",
+      "story_coherence": 0.9,
+      "topic_adherence": 0.1,
+      "creativity": 0.4,
+      "grammar_quality": 1.0,
+      "reasoning": "The story is a coherent and grammatically flawless snippet of a fantasy adventure. However, it completely fails to adhere to the given topic. The prompt asked for a story about 'a young wizard discovering hidden powers', but the protagonist is an 'elf scout' who prepares to fight a griffin with a dagger. There is no mention of wizardry or the discovery of any magical powers. The creativity is also low, as the story relies on very common fantasy tropes (elf scout, ancient ruins, griffin) without adding any unique elements.",
+      "suggestions": "To meet the topic requirements, the protagonist should be a wizard. The confrontation with the griffin could be the event that triggers the discovery of their hidden powers. For instance, instead of drawing a dagger, the character could accidentally cast a powerful spell out of fear or desperation, surprising both themselves and the beast.",
+      "generated_story_preview": "Elara, a nimble elf scout, crept through the Whispering Woods, her silver dagger gleaming softly in the moonlight. A cryptic map, scorched at the edges, guided her to the ancient ruins of Eldoria, rum"
+    },
+    {
+      "test_id": "story_005",
+      "overall_score": 0.495,
+      "verdict": "FAIL",
+      "story_coherence": 0.9,
+      "topic_adherence": 0.0,
+      "creativity": 0.3,
+      "grammar_quality": 1.0,
+      "reasoning": "The generated story is completely unrelated to the provided topic. The prompt requested a science fiction narrative about 'robots gaining consciousness in the year 3000,' but the story is about a kitten exploring a spooky house. While the story itself is coherent and grammatically flawless, its absolute failure to adhere to the topic results in a very low topic_adherence score, which significantly impacts the overall evaluation. The creativity is also low, as 'a small animal in a big scary place' is a common trope.",
+      "suggestions": "The model must be strictly guided to address the core elements of the prompt. In this case, it missed 'robots,' 'consciousness,' and 'year 3000' entirely. The generation process should prioritize topic adherence above all else before developing narrative elements.",
+      "generated_story_preview": "Whiskers twitching, a tiny orange kitten named Pip cautiously pushed open the creaking front door of the old mansion. Every shadow seemed to stretch into a monstrous shape, and the wind howled a mourn"
+    }
+  ]
+}
