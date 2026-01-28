@@ -1,0 +1,396 @@
+[
+  {
+    "insertId": "ldp4rkfczhhua",
+    "labels": {
+      "tunnel_id": "3446805876251833262"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:47.763358288Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "received packet: from 13.204.108.96[4500] to 34.153.53.253[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:47.760099244Z"
+  },
+  {
+    "insertId": "1gqa4c4f2997r1",
+    "labels": {
+      "tunnel_id": "1745400258918627387"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:45.550684742Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "sending packet: from 34.153.241.49[4500] to 65.1.82.236[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:45.484736720Z"
+  },
+  {
+    "insertId": "1gqa4c4f2997r0",
+    "labels": {
+      "tunnel_id": "1745400258918627387"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:45.550684742Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "generating INFORMATIONAL response 2724 [ ]",
+    "timestamp": "2026-01-23T09:33:45.484541506Z"
+  },
+  {
+    "insertId": "1gqa4c4f2997qz",
+    "labels": {
+      "tunnel_id": "1745400258918627387"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:45.550684742Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "parsed INFORMATIONAL request 2724 [ ]",
+    "timestamp": "2026-01-23T09:33:45.484385078Z"
+  },
+  {
+    "insertId": "5ux7wafbsddnd",
+    "labels": {
+      "tunnel_id": "1745400258918627387"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:45.487508943Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "received packet: from 65.1.82.236[4500] to 34.153.241.49[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:45.484077828Z"
+  },
+  {
+    "insertId": "697340780002cb883b81aee9",
+    "logName": "projects/product-research-460317/logs/aiplatform.googleapis.com%2Freasoning_engine_stderr",
+    "receiveTimestamp": "2026-01-23T09:33:44.409371283Z",
+    "resource": {
+      "labels": {
+        "location": "us-central1",
+        "reasoning_engine_id": "935625021609476096",
+        "resource_container": "845835740344"
+      },
+      "type": "aiplatform.googleapis.com/ReasoningEngine"
+    },
+    "textPayload": "[1]       INFO:     Finished server process [1]",
+    "timestamp": "2026-01-23T09:33:44.183176Z"
+  },
+  {
+    "insertId": "697340780002cb246c679ec8",
+    "logName": "projects/product-research-460317/logs/aiplatform.googleapis.com%2Freasoning_engine_stderr",
+    "receiveTimestamp": "2026-01-23T09:33:44.409371283Z",
+    "resource": {
+      "labels": {
+        "location": "us-central1",
+        "reasoning_engine_id": "935625021609476096",
+        "resource_container": "845835740344"
+      },
+      "type": "aiplatform.googleapis.com/ReasoningEngine"
+    },
+    "textPayload": "[1]       INFO:     Application shutdown complete.",
+    "timestamp": "2026-01-23T09:33:44.183076Z"
+  },
+  {
+    "insertId": "wst8jifc5ll00",
+    "labels": {
+      "tunnel_id": "5341735921009571899"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:42.837407659Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "sending packet: from 34.153.53.253[4500] to 35.154.66.236[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:42.756706954Z"
+  },
+  {
+    "insertId": "wst8jifc5lkzz",
+    "labels": {
+      "tunnel_id": "5341735921009571899"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:42.837407659Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "generating INFORMATIONAL response 2713 [ ]",
+    "timestamp": "2026-01-23T09:33:42.756410889Z"
+  },
+  {
+    "insertId": "wst8jifc5lkzy",
+    "labels": {
+      "tunnel_id": "5341735921009571899"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:42.837407659Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "parsed INFORMATIONAL request 2713 [ ]",
+    "timestamp": "2026-01-23T09:33:42.756208900Z"
+  },
+  {
+    "insertId": "6dvmm0fbscozc",
+    "labels": {
+      "tunnel_id": "5341735921009571899"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:42.761336225Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "received packet: from 35.154.66.236[4500] to 34.153.53.253[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:42.755906174Z"
+  },
+  {
+    "insertId": "1ckzt8sf9votzb",
+    "jsonPayload": {
+      "message": "2026-01-23T09:33:38.575196+00:00 ai-router-test google_guest_agent[463]: Invalid user \"keshav_agrawal\" or key \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAF55GV/BDzn0/iTNi52xu2CIxVconSBbnmfGdhtmEYZucwLpD1pcppqwyuJ0WfD0ChSA4wilePTXGHJDYrkoygbgpKa4tfiqj77oVgIQRvo3ABXI+1IDH5j8HTAQL7weL+Z8adCCdl8z3hlAAXTPqtP8T5nh7WwdNvUy9kO90A7JAklhOCmgaUk6349NH2dsvMAX2/SC51vDOgNjjJsgXQcS2oCB2LS4kydp0oouivOGDybT3fmiumi3J5KDagRxd0A7BR5uVOte4z5iC7qgD+Fns7spDt3s8pF+QUUpWNwLmfkajzN/rpU07HcXlqBxJa//8QkC/g4ocuwf6368TEs= google-ssh {\\\"userName\\\":\\\"keshav.agrawal@helpshift.com\\\",\\\"expireOn\\\":\\\"2026-01-12T09:51:24+0000\\\"}\" in metadata: invalid ssh key entry - expired key."
+    },
+    "labels": {
+      "compute.googleapis.com/resource_name": "ai-router-test"
+    },
+    "logName": "projects/product-research-460317/logs/syslog",
+    "receiveTimestamp": "2026-01-23T09:33:39.340605511Z",
+    "resource": {
+      "labels": {
+        "instance_id": "1962142562286902306",
+        "project_id": "product-research-460317",
+        "zone": "us-central1-f"
+      },
+      "type": "gce_instance"
+    },
+    "timestamp": "2026-01-23T09:33:38.575964026Z"
+  },
+  {
+    "insertId": "1ckzt8sf9votza",
+    "jsonPayload": {
+      "message": "2026-01-23T09:33:38.574541+00:00 ai-router-test google_guest_agent[463]: Invalid user \"keshav_agrawal\" or key \"ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOFd1qjytxSKGVqV10OR19GU/gR1dZ0bBE9wH5zMJz0Vt/pYUKrsMEKf3O4hja6aeWvBvTJjscvliYWgYicY9lA= google-ssh {\\\"userName\\\":\\\"keshav.agrawal@helpshift.com\\\",\\\"expireOn\\\":\\\"2026-01-12T09:51:16+0000\\\"}\" in metadata: invalid ssh key entry - expired key."
+    },
+    "labels": {
+      "compute.googleapis.com/resource_name": "ai-router-test"
+    },
+    "logName": "projects/product-research-460317/logs/syslog",
+    "receiveTimestamp": "2026-01-23T09:33:39.340605511Z",
+    "resource": {
+      "labels": {
+        "instance_id": "1962142562286902306",
+        "project_id": "product-research-460317",
+        "zone": "us-central1-f"
+      },
+      "type": "gce_instance"
+    },
+    "timestamp": "2026-01-23T09:33:38.575956358Z"
+  },
+  {
+    "insertId": "1v6l4ddek36ub",
+    "jsonPayload": {
+      "localTimestamp": "2026-01-23T09:33:38.5738Z",
+      "message": "Invalid user \"keshav_agrawal\" or key \"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAF55GV/BDzn0/iTNi52xu2CIxVconSBbnmfGdhtmEYZucwLpD1pcppqwyuJ0WfD0ChSA4wilePTXGHJDYrkoygbgpKa4tfiqj77oVgIQRvo3ABXI+1IDH5j8HTAQL7weL+Z8adCCdl8z3hlAAXTPqtP8T5nh7WwdNvUy9kO90A7JAklhOCmgaUk6349NH2dsvMAX2/SC51vDOgNjjJsgXQcS2oCB2LS4kydp0oouivOGDybT3fmiumi3J5KDagRxd0A7BR5uVOte4z5iC7qgD+Fns7spDt3s8pF+QUUpWNwLmfkajzN/rpU07HcXlqBxJa//8QkC/g4ocuwf6368TEs= google-ssh {\\\"userName\\\":\\\"keshav.agrawal@helpshift.com\\\",\\\"expireOn\\\":\\\"2026-01-12T09:51:24+0000\\\"}\" in metadata: invalid ssh key entry - expired key.",
+      "progName": "core_plugin",
+      "progVersion": "20251205.00"
+    },
+    "labels": {
+      "instance_name": "ai-router-test"
+    },
+    "logName": "projects/product-research-460317/logs/GCEGuestAgent",
+    "receiveTimestamp": "2026-01-23T09:33:43.597041614Z",
+    "resource": {
+      "labels": {
+        "instance_id": "1962142562286902306",
+        "project_id": "product-research-460317",
+        "zone": "us-central1-f"
+      },
+      "type": "gce_instance"
+    },
+    "severity": "WARNING",
+    "sourceLocation": {
+      "file": "metadatasshkey.go",
+      "function": "github.com/GoogleCloudPlatform/google-guest-agent/cmd/core_plugin/metadatasshkey.findValidKeys",
+      "line": "217"
+    },
+    "timestamp": "2026-01-23T09:33:38.575691062Z"
+  },
+  {
+    "insertId": "1v6l4ddek36ua",
+    "jsonPayload": {
+      "localTimestamp": "2026-01-23T09:33:38.5737Z",
+      "message": "Invalid user \"keshav_agrawal\" or key \"ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOFd1qjytxSKGVqV10OR19GU/gR1dZ0bBE9wH5zMJz0Vt/pYUKrsMEKf3O4hja6aeWvBvTJjscvliYWgYicY9lA= google-ssh {\\\"userName\\\":\\\"keshav.agrawal@helpshift.com\\\",\\\"expireOn\\\":\\\"2026-01-12T09:51:16+0000\\\"}\" in metadata: invalid ssh key entry - expired key.",
+      "progName": "core_plugin",
+      "progVersion": "20251205.00"
+    },
+    "labels": {
+      "instance_name": "ai-router-test"
+    },
+    "logName": "projects/product-research-460317/logs/GCEGuestAgent",
+    "receiveTimestamp": "2026-01-23T09:33:43.597041614Z",
+    "resource": {
+      "labels": {
+        "instance_id": "1962142562286902306",
+        "project_id": "product-research-460317",
+        "zone": "us-central1-f"
+      },
+      "type": "gce_instance"
+    },
+    "severity": "WARNING",
+    "sourceLocation": {
+      "file": "metadatasshkey.go",
+      "function": "github.com/GoogleCloudPlatform/google-guest-agent/cmd/core_plugin/metadatasshkey.findValidKeys",
+      "line": "217"
+    },
+    "timestamp": "2026-01-23T09:33:38.573928126Z"
+  },
+  {
+    "insertId": "140h6mnfby01lg",
+    "labels": {
+      "tunnel_id": "3530302583106713660"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:37.992146576Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "sending packet: from 34.153.241.49[4500] to 13.234.253.243[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:37.913972694Z"
+  },
+  {
+    "insertId": "140h6mnfby01lf",
+    "labels": {
+      "tunnel_id": "3530302583106713660"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:37.992146576Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "generating INFORMATIONAL response 1064 [ ]",
+    "timestamp": "2026-01-23T09:33:37.913791774Z"
+  },
+  {
+    "insertId": "140h6mnfby01le",
+    "labels": {
+      "tunnel_id": "3530302583106713660"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:37.992146576Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "parsed INFORMATIONAL request 1064 [ ]",
+    "timestamp": "2026-01-23T09:33:37.913665284Z"
+  },
+  {
+    "insertId": "vn35s9f5ucm4g",
+    "labels": {
+      "tunnel_id": "3530302583106713660"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:37.917247743Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "received packet: from 13.234.253.243[4500] to 34.153.241.49[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:37.913442784Z"
+  },
+  {
+    "insertId": "qmx18yfbqtvkf",
+    "labels": {
+      "tunnel_id": "3446805876251833262"
+    },
+    "logName": "projects/product-research-460317/logs/cloud.googleapis.com%2Fipsec_events",
+    "receiveTimestamp": "2026-01-23T09:33:37.843176344Z",
+    "resource": {
+      "labels": {
+        "gateway_id": "5619268401210402661",
+        "project_id": "product-research-460317",
+        "region": "us-central1"
+      },
+      "type": "vpn_gateway"
+    },
+    "severity": "DEBUG",
+    "textPayload": "sending packet: from 34.153.53.253[4500] to 13.204.108.96[4500] (57 bytes)",
+    "timestamp": "2026-01-23T09:33:37.760346542Z"
+  }
+]

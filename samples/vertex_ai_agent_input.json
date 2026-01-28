@@ -1,0 +1,35 @@
+{
+    "description": "Vertex AI GenAI Evaluation SDK - Agent Input Format",
+    "note": "This format is used with client.evals.run_inference() for deployed agents",
+    "dataset_rows": [
+        {
+            "prompt": "What is 25 plus 17?",
+            "session_inputs": {
+                "user_id": "user_001",
+                "state": {}
+            }
+        },
+        {
+            "prompt": "Divide 100 by 5",
+            "session_inputs": {
+                "user_id": "user_002",
+                "state": {}
+            }
+        },
+        {
+            "prompt": "Calculate 8 times 7 and then divide by 2",
+            "session_inputs": {
+                "user_id": "user_003",
+                "state": {}
+            }
+        },
+        {
+            "prompt": "What can you do?",
+            "session_inputs": {
+                "user_id": "user_004",
+                "state": {}
+            }
+        }
+    ],
+    "usage_example": "import pandas as pd\nfrom vertexai import types\n\neval_df = pd.DataFrame({\n    'prompt': ['What is 25 plus 17?', 'Divide 100 by 5'],\n    'session_inputs': [\n        types.evals.SessionInput(user_id='user_001', state={}),\n        types.evals.SessionInput(user_id='user_002', state={})\n    ]\n})\n\n# Run inference on deployed agent\nresult = client.evals.run_inference(\n    agent='projects/xxx/locations/xxx/agents/xxx',\n    src=eval_df\n)"
+}

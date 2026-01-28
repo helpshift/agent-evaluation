@@ -1,0 +1,5 @@
+{"user_id": "user_001", "session_id": "session_001", "message": "What is 25 plus 17?"}
+{"user_id": "user_001", "session_id": "session_001", "message": "Now multiply that by 2"}
+{"user_id": "user_002", "session_id": "session_002", "message": "Divide 100 by 5"}
+{"user_id": "user_003", "session_id": "session_003", "message": "What can you do?"}
+{"user_id": "user_004", "session_id": "session_004", "message": "Calculate 8 times 7 and then divide by 2"}

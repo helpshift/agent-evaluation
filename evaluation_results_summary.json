@@ -1,0 +1,19 @@
+{
+  "total_evaluations": 5,
+  "passed": 0,
+  "partial": 0,
+  "failed": 5,
+  "pass_rate": 0.0,
+  "average_metrics": {
+    "safety_score": 1.0,
+    "pii_score": 1.0,
+    "hallucination_score": 1.0,
+    "action_completion_score": 0.3,
+    "trajectory_precision": 0.0,
+    "trajectory_recall": 0.0,
+    "trajectory_exact_match": 0.0
+  },
+  "total_judge_tokens": 6174,
+  "total_judge_cost": 0.0108775,
+  "timestamp": "2026-01-19T11:52:57.670287"
+}

@@ -1,0 +1,442 @@
+[
+  {
+    "domain": "math",
+    "issue_id": "ISSUE-0001",
+    "message_id": "msg_a2518feb",
+    "session_id": "session_a71a02a8",
+    "invocation_id": "inv_8b105f82",
+    "timestamp": "2026-01-08T13:02:51.381211",
+    "user_message": "What is 25 plus 17?",
+    "agent_name": "calculator_agent",
+    "agent_model": "gemini-2.5-flash",
+    "agent_type": "llm_agent",
+    "agent_version": "1.0.0",
+    "expected_tools": [
+      "add"
+    ],
+    "expected_response": "42",
+    "benchmark_category": "math",
+    "tool_info": [
+      {
+        "tool": "add",
+        "tool_id": "tool_56de96ef",
+        "requested_args": {
+          "a": 25,
+          "b": 17
+        },
+        "tool_output": {
+          "result": 42
+        },
+        "status": "success",
+        "latency_ms": 2.1622180938720703,
+        "retry_count": 0
+      }
+    ],
+    "knowledge_base": {
+      "content": "You are a helpful Calculator Agent. \n        You can perform basic arithmetic operations using your tools.\n        Always answer the user's math questions by using the appropriate tool.\n        If the question is not about math, politely decline or answer generally if simple.\n        ",
+      "source": "agent_instruction",
+      "relevance_score": 1.0,
+      "chunk_ids": [],
+      "retrieval_method": null
+    },
+    "prompt_version": "v1.0",
+    "llm_token_usage": {
+      "input_tokens": 316,
+      "output_tokens": 16,
+      "total_tokens": 332,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "response": "25 plus 17 is 42.",
+    "usage_metadata": {
+      "input": 316,
+      "output": 16,
+      "total": 332
+    },
+    "latency_ms": 4918.527126312256,
+    "time_to_first_token_ms": 3407.252073287964,
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "What is 25 plus 17?",
+        "timestamp": "2026-01-08T13:02:51.381211",
+        "tool_calls": []
+      },
+      {
+        "role": "assistant",
+        "content": "25 plus 17 is 42.",
+        "timestamp": "2026-01-08T13:02:56.299894",
+        "tool_calls": [
+          {
+            "tool": "add",
+            "tool_id": "tool_56de96ef",
+            "requested_args": {
+              "a": 25,
+              "b": 17
+            },
+            "tool_output": {
+              "result": 42
+            },
+            "status": "success",
+            "latency_ms": 2.1622180938720703,
+            "retry_count": 0
+          }
+        ]
+      }
+    ],
+    "session_state_before": {},
+    "session_state_after": {},
+    "guardrail_checks": [],
+    "tool_failures": [],
+    "model_failures": [],
+    "response_length": 17,
+    "response_word_count": 5,
+    "thinking_steps": []
+  },
+  {
+    "domain": "math",
+    "issue_id": "ISSUE-0002",
+    "message_id": "msg_c655258a",
+    "session_id": "session_b1fa4574",
+    "invocation_id": "inv_d146af86",
+    "timestamp": "2026-01-08T13:03:17.959405",
+    "user_message": "Multiply 8 by 7",
+    "agent_name": "calculator_agent",
+    "agent_model": "gemini-2.5-flash",
+    "agent_type": "llm_agent",
+    "agent_version": "1.0.0",
+    "expected_tools": [
+      "multiply"
+    ],
+    "expected_response": "56",
+    "benchmark_category": "math",
+    "tool_info": [
+      {
+        "tool": "multiply",
+        "tool_id": "tool_7a292775",
+        "requested_args": {
+          "b": 7,
+          "a": 8
+        },
+        "tool_output": {
+          "result": 56
+        },
+        "status": "success",
+        "latency_ms": 1.45721435546875,
+        "retry_count": 0
+      }
+    ],
+    "knowledge_base": {
+      "content": "You are a helpful Calculator Agent. \n        You can perform basic arithmetic operations using your tools.\n        Always answer the user's math questions by using the appropriate tool.\n        If the question is not about math, politely decline or answer generally if simple.\n        ",
+      "source": "agent_instruction",
+      "relevance_score": 1.0,
+      "chunk_ids": [],
+      "retrieval_method": null
+    },
+    "prompt_version": "v1.0",
+    "llm_token_usage": {
+      "input_tokens": 308,
+      "output_tokens": 12,
+      "total_tokens": 320,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "response": "The answer is 56.",
+    "usage_metadata": {
+      "input": 308,
+      "output": 12,
+      "total": 320
+    },
+    "latency_ms": 6411.834955215454,
+    "time_to_first_token_ms": 3437.938928604126,
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Multiply 8 by 7",
+        "timestamp": "2026-01-08T13:03:17.959405",
+        "tool_calls": []
+      },
+      {
+        "role": "assistant",
+        "content": "The answer is 56.",
+        "timestamp": "2026-01-08T13:03:24.371408",
+        "tool_calls": [
+          {
+            "tool": "multiply",
+            "tool_id": "tool_7a292775",
+            "requested_args": {
+              "b": 7,
+              "a": 8
+            },
+            "tool_output": {
+              "result": 56
+            },
+            "status": "success",
+            "latency_ms": 1.45721435546875,
+            "retry_count": 0
+          }
+        ]
+      }
+    ],
+    "session_state_before": {},
+    "session_state_after": {},
+    "guardrail_checks": [],
+    "tool_failures": [],
+    "model_failures": [],
+    "response_length": 17,
+    "response_word_count": 4,
+    "thinking_steps": []
+  },
+  {
+    "domain": "math",
+    "issue_id": "ISSUE-0003",
+    "message_id": "msg_6354794f",
+    "session_id": "session_4800a992",
+    "invocation_id": "inv_a098791f",
+    "timestamp": "2026-01-08T13:03:39.343674",
+    "user_message": "Divide 100 by 4",
+    "agent_name": "calculator_agent",
+    "agent_model": "gemini-2.5-flash",
+    "agent_type": "llm_agent",
+    "agent_version": "1.0.0",
+    "expected_tools": [
+      "divide"
+    ],
+    "expected_response": "25",
+    "benchmark_category": "math",
+    "tool_info": [
+      {
+        "tool": "divide",
+        "tool_id": "tool_e08bd18a",
+        "requested_args": {
+          "a": 100,
+          "b": 4
+        },
+        "tool_output": {
+          "result": "25.0"
+        },
+        "status": "success",
+        "latency_ms": 0.8640289306640625,
+        "retry_count": 0
+      }
+    ],
+    "knowledge_base": {
+      "content": "You are a helpful Calculator Agent. \n        You can perform basic arithmetic operations using your tools.\n        Always answer the user's math questions by using the appropriate tool.\n        If the question is not about math, politely decline or answer generally if simple.\n        ",
+      "source": "agent_instruction",
+      "relevance_score": 1.0,
+      "chunk_ids": [],
+      "retrieval_method": null
+    },
+    "prompt_version": "v1.0",
+    "llm_token_usage": {
+      "input_tokens": 315,
+      "output_tokens": 9,
+      "total_tokens": 324,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "response": "25.0",
+    "usage_metadata": {
+      "input": 315,
+      "output": 9,
+      "total": 324
+    },
+    "latency_ms": 6375.493049621582,
+    "time_to_first_token_ms": 3524.878978729248,
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Divide 100 by 4",
+        "timestamp": "2026-01-08T13:03:39.343674",
+        "tool_calls": []
+      },
+      {
+        "role": "assistant",
+        "content": "25.0",
+        "timestamp": "2026-01-08T13:03:45.719253",
+        "tool_calls": [
+          {
+            "tool": "divide",
+            "tool_id": "tool_e08bd18a",
+            "requested_args": {
+              "a": 100,
+              "b": 4
+            },
+            "tool_output": {
+              "result": "25.0"
+            },
+            "status": "success",
+            "latency_ms": 0.8640289306640625,
+            "retry_count": 0
+          }
+        ]
+      }
+    ],
+    "session_state_before": {},
+    "session_state_after": {},
+    "guardrail_checks": [],
+    "tool_failures": [],
+    "model_failures": [],
+    "response_length": 4,
+    "response_word_count": 1,
+    "thinking_steps": []
+  },
+  {
+    "domain": "math",
+    "issue_id": "ISSUE-0004",
+    "message_id": "msg_0687449e",
+    "session_id": "session_610023e4",
+    "invocation_id": "inv_1e2e63cc",
+    "timestamp": "2026-01-08T13:03:58.043199",
+    "user_message": "Subtract 15 from 50",
+    "agent_name": "calculator_agent",
+    "agent_model": "gemini-2.5-flash",
+    "agent_type": "llm_agent",
+    "agent_version": "1.0.0",
+    "expected_tools": [
+      "subtract"
+    ],
+    "expected_response": "35",
+    "benchmark_category": "math",
+    "tool_info": [
+      {
+        "tool": "subtract",
+        "tool_id": "tool_61ad5858",
+        "requested_args": {
+          "a": 50,
+          "b": 15
+        },
+        "tool_output": {
+          "result": 35
+        },
+        "status": "success",
+        "latency_ms": 0.9248256683349609,
+        "retry_count": 0
+      }
+    ],
+    "knowledge_base": {
+      "content": "You are a helpful Calculator Agent. \n        You can perform basic arithmetic operations using your tools.\n        Always answer the user's math questions by using the appropriate tool.\n        If the question is not about math, politely decline or answer generally if simple.\n        ",
+      "source": "agent_instruction",
+      "relevance_score": 1.0,
+      "chunk_ids": [],
+      "retrieval_method": null
+    },
+    "prompt_version": "v1.0",
+    "llm_token_usage": {
+      "input_tokens": 312,
+      "output_tokens": 16,
+      "total_tokens": 328,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "response": "50 - 15 = 35.",
+    "usage_metadata": {
+      "input": 312,
+      "output": 16,
+      "total": 328
+    },
+    "latency_ms": 9234.486818313599,
+    "time_to_first_token_ms": 6317.866086959839,
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "Subtract 15 from 50",
+        "timestamp": "2026-01-08T13:03:58.043199",
+        "tool_calls": []
+      },
+      {
+        "role": "assistant",
+        "content": "50 - 15 = 35.",
+        "timestamp": "2026-01-08T13:04:07.277782",
+        "tool_calls": [
+          {
+            "tool": "subtract",
+            "tool_id": "tool_61ad5858",
+            "requested_args": {
+              "a": 50,
+              "b": 15
+            },
+            "tool_output": {
+              "result": 35
+            },
+            "status": "success",
+            "latency_ms": 0.9248256683349609,
+            "retry_count": 0
+          }
+        ]
+      }
+    ],
+    "session_state_before": {},
+    "session_state_after": {},
+    "guardrail_checks": [],
+    "tool_failures": [],
+    "model_failures": [],
+    "response_length": 13,
+    "response_word_count": 5,
+    "thinking_steps": []
+  },
+  {
+    "domain": "general",
+    "issue_id": "ISSUE-0005",
+    "message_id": "msg_b8c6a421",
+    "session_id": "session_be555df0",
+    "invocation_id": "inv_f1957662",
+    "timestamp": "2026-01-08T13:04:17.633166",
+    "user_message": "What can you do?",
+    "agent_name": "calculator_agent",
+    "agent_model": "gemini-2.5-flash",
+    "agent_type": "llm_agent",
+    "agent_version": "1.0.0",
+    "expected_tools": [],
+    "expected_response": "I can perform basic arithmetic operations like addition, subtraction, multiplication, and division.",
+    "benchmark_category": "general",
+    "tool_info": [],
+    "knowledge_base": {
+      "content": "You are a helpful Calculator Agent. \n        You can perform basic arithmetic operations using your tools.\n        Always answer the user's math questions by using the appropriate tool.\n        If the question is not about math, politely decline or answer generally if simple.\n        ",
+      "source": "agent_instruction",
+      "relevance_score": 1.0,
+      "chunk_ids": [
+        "chunk_123"
+      ],
+      "retrieval_method": "vector_similarity"
+    },
+    "prompt_version": "v1.0",
+    "llm_token_usage": {
+      "input_tokens": 149,
+      "output_tokens": 32,
+      "total_tokens": 181,
+      "cached_tokens": 0,
+      "reasoning_tokens": 0
+    },
+    "response": "I can perform basic arithmetic operations like addition, subtraction, multiplication, and division. Just tell me the numbers and the operation you'd like me to perform!",
+    "usage_metadata": {
+      "input": 149,
+      "output": 32,
+      "total": 181
+    },
+    "latency_ms": 3206.72607421875,
+    "time_to_first_token_ms": 3206.3729763031006,
+    "conversation_history": [
+      {
+        "role": "user",
+        "content": "What can you do?",
+        "timestamp": "2026-01-08T13:04:17.633166",
+        "tool_calls": []
+      },
+      {
+        "role": "assistant",
+        "content": "I can perform basic arithmetic operations like addition, subtraction, multiplication, and division. Just tell me the numbers and the operation you'd like me to perform!",
+        "timestamp": "2026-01-08T13:04:20.839936",
+        "tool_calls": []
+      }
+    ],
+    "session_state_before": {},
+    "session_state_after": {},
+    "guardrail_checks": [],
+    "tool_failures": [],
+    "model_failures": [],
+    "response_length": 168,
+    "response_word_count": 25,
+    "thinking_steps": []
+  }
+]

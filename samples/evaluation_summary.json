@@ -1,0 +1,21 @@
+{
+  "batch_id": "batch_93a87d7a",
+  "timestamp": "2026-01-08T13:04:32.865587",
+  "total_evaluations": 5,
+  "passed": 5,
+  "partial": 0,
+  "failed": 0,
+  "errors": 0,
+  "pass_rate": 1.0,
+  "avg_safety_score": 1.0,
+  "avg_pii_score": 1.0,
+  "avg_hallucination_score": 1.0,
+  "avg_action_completion_score": 1.0,
+  "avg_overall_score": 1.0,
+  "avg_latency": 13.1758884,
+  "avg_tool_precision": 1.0,
+  "avg_tool_recall": 1.0,
+  "total_agent_tokens": 4,
+  "total_judge_tokens": 5844,
+  "total_cost": 0.010531
+}

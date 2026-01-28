@@ -1,0 +1,102 @@
+{
+    "inputs": [
+        {
+            "user_id": "user_001",
+            "session_id": "session_001",
+            "app_name": "calculator_agent",
+            "messages": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "What is 25 plus 17?"
+                        }
+                    ]
+                }
+            ],
+            "state": {}
+        },
+        {
+            "user_id": "user_001",
+            "session_id": "session_001",
+            "app_name": "calculator_agent",
+            "messages": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "What is 25 plus 17?"
+                        }
+                    ]
+                },
+                {
+                    "role": "model",
+                    "parts": [
+                        {
+                            "text": "25 plus 17 equals 42."
+                        }
+                    ]
+                },
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "Now multiply that by 2"
+                        }
+                    ]
+                }
+            ],
+            "state": {
+                "last_result": 42
+            }
+        },
+        {
+            "user_id": "user_002",
+            "session_id": "session_002",
+            "app_name": "calculator_agent",
+            "messages": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "Divide 100 by 5"
+                        }
+                    ]
+                }
+            ],
+            "state": {}
+        },
+        {
+            "user_id": "user_003",
+            "session_id": "session_003",
+            "app_name": "calculator_agent",
+            "messages": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "What can you do?"
+                        }
+                    ]
+                }
+            ],
+            "state": {}
+        },
+        {
+            "user_id": "user_004",
+            "session_id": "session_004",
+            "app_name": "calculator_agent",
+            "messages": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {
+                            "text": "Calculate 8 times 7 and then divide by 2"
+                        }
+                    ]
+                }
+            ],
+            "state": {}
+        }
+    ]
+}
