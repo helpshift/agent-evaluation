@@ -18,5 +18,12 @@ pytest-asyncio>=0.21.0
 # Environment
 python-dotenv>=1.0.0
 
+# Trace Extraction Dependencies
+google-cloud-trace>=1.11.0
+google-cloud-storage>=2.10.0
+google-cloud-logging>=3.5.0
+google-api-core>=2.11.0
+protobuf>=4.21.0
+
 # Optional: For local development
 # litellm>=1.0.0  # For third-party model evaluation (OpenAI, Anthropic, etc.)

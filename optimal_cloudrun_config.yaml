@@ -1,0 +1,97 @@
+# Optimal Cloud Run Configuration for Trace Extraction
+# Based on POC results - January 30, 2026
+#
+# KEY FINDINGS:
+# - Max throughput: ~900-1000 traces/minute
+# - API quota: 300 units/60s (project-level, shared across instances)
+# - Multiple instances DON'T help (same quota limit)
+# - Optimal: Single instance with 5 parallel workers internally
+
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: trace-extraction-service
+  namespace: '845835740344'
+  labels:
+    cloud.googleapis.com/location: us-central1
+  annotations:
+    run.googleapis.com/client-name: gcloud
+    run.googleapis.com/ingress: all
+    run.googleapis.com/maxScale: '1'  # IMPORTANT: Keep at 1
+spec:
+  template:
+    metadata:
+      annotations:
+        # Scaling: Single instance is optimal due to shared API quota
+        autoscaling.knative.dev/maxScale: '1'
+        autoscaling.knative.dev/minScale: '0'  # Scale to 0 when idle
+
+        # CPU: Always-on for consistent performance
+        run.googleapis.com/cpu-throttling: 'false'
+        run.googleapis.com/startup-cpu-boost: 'true'
+
+        run.googleapis.com/client-name: gcloud
+    spec:
+      # Single request at a time (batch processing)
+      containerConcurrency: 1
+
+      # 1 hour timeout for long batch jobs
+      timeoutSeconds: 3600
+
+      serviceAccountName: 845835740344-compute@developer.gserviceaccount.com
+
+      containers:
+      - image: gcr.io/product-research-460317/trace-extraction-service
+        ports:
+        - name: http1
+          containerPort: 8080
+
+        env:
+        - name: GCP_PROJECT_ID
+          value: product-research-460317
+        - name: GCS_BUCKET
+          value: evaluation-research
+        - name: AGENT_ENGINE_ID
+          value: '3122210601628073984'
+        - name: BIFROST_URL
+          value: https://bifrost-service-qa-845835740344.us-central1.run.app/webhook/bifrost_service
+
+        # Optimization settings
+        - name: PARALLEL_WORKERS
+          value: '5'  # 5 workers optimal (fewer quota hits)
+        - name: TRACES_PER_BATCH
+          value: '100'  # Max per API call
+        - name: THROTTLE_DELAY_MS
+          value: '100'  # 100ms delay between batches
+
+        resources:
+          limits:
+            cpu: '2'
+            memory: 2Gi
+
+        startupProbe:
+          timeoutSeconds: 240
+          periodSeconds: 240
+          failureThreshold: 1
+          tcpSocket:
+            port: 8080
+
+  traffic:
+  - percent: 100
+    latestRevision: true
+
+---
+# Cost Summary:
+#
+# For 6 Million Issues:
+# =====================
+# Throughput:     900 traces/minute
+# Time:           111 hours (4.6 days)
+# Cloud Run:      $21.20
+# GCS Storage:    $1.06/month
+# TOTAL:          $22.26
+#
+# For Daily Incremental (~1000 issues):
+# =====================================
+# Time:           ~1 minute
+# Cost:           $0.004/day (~$0.12/month)

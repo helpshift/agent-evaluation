@@ -1,0 +1,17 @@
+{
+  "test_timestamp": "2026-01-30T13:54:01.261079",
+  "test_duration_seconds": 122.5885980129242,
+  "workers": 5,
+  "total_batches": 20,
+  "successful_calls": 10,
+  "total_traces": 1000,
+  "quota_exhausted": 90,
+  "sustained_throughput_per_minute": 489.4,
+  "cost_for_6m_issues": {
+    "hours": 204.3,
+    "days": 8.5,
+    "cloud_run_usd": 38.98,
+    "gcs_usd_monthly": 1.01,
+    "total_usd": 39.99
+  }
+}

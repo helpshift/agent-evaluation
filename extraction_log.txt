@@ -1,0 +1,15 @@
+Fetching traces with Agent Engine filter: 3122210601628073984
+Fetched 3 total traces, 3 match Bifrost filter
+Processing 3 traces...
+Saved content mapping to gcs_data/content_mapping.json
+Fetching additional data from Cloud Logging...
+  Launching Phase 1 queries (Profile, Issue, Session)...
+Fetched log data for 3 traces
+Propagating Session IDs...
+Saved 3 consolidated records to deep_test.jsonl
+
+=== Summary ===
+Total traces: 3
+With issue_id: 3
+With message_id: 1
+With domain: 3

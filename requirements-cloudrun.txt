@@ -1,0 +1,9 @@
+# Minimal dependencies for Cloud Run trace extraction service
+# Only includes what's needed for extract_traces_v7.py
+
+# Trace Extraction Dependencies
+google-cloud-trace>=1.11.0
+google-cloud-storage>=2.10.0
+google-cloud-logging>=3.5.0
+google-api-core>=2.11.0
+protobuf>=4.21.0

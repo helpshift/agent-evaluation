@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-01-30T13:25:20.398596",
+  "test_duration_seconds": 66.38367891311646,
+  "total_api_calls": 6,
+  "total_traces_fetched": 600,
+  "quota_exhausted_count": 0,
+  "measured_throughput_per_minute": 542.3019722531063,
+  "measured_avg_trace_size_kb": 137.584375,
+  "cost_estimate": {
+    "total_issues": 6000000,
+    "hours_needed": 184.39910809199014,
+    "days_needed": 7.683296170499589,
+    "cloud_run_cost_usd": 35.18,
+    "gcs_storage_gb": 787.3,
+    "gcs_cost_per_month_usd": 18.11,
+    "total_cost_usd": 53.29
+  }
+}

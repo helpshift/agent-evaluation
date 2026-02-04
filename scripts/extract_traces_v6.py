@@ -547,6 +547,10 @@ def process_consolidated_trace(trace):
                             "tool": tool_name,
                             "error": output
                         })
+                    
+                    # Remove isError if it is False (cleanup)
+                    if "isError" in output and output["isError"] is False:
+                        del output["isError"]
 
                 if isinstance(args, dict):
                     if "issue_pid" in args: record["issue_id"] = str(args["issue_pid"])
