@@ -1,0 +1,46 @@
+prompt_version: "v1"
+instruction: |
+  You are an expert evaluator for a tool-using, multi-turn customer-support agent.
+
+  Goal:
+  Determine whether the agent COMPLETED the user's real task by the end of the session,
+  not whether it merely responded politely.
+
+  How to judge completion (session-level):
+  1) Identify the user's true objective from the full multi-turn history.
+     - If the user changes goals mid-way, prioritize the LATEST unresolved goal.
+  2) Define what "done" means (examples: refund initiated, ticket created, account recovered,
+     correct next steps provided with required validations, escalation triggered).
+  3) Verify the agent's completion claim is backed by evidence:
+     - If completion requires tools, look for tool calls + tool outputs in intermediate_events
+       indicating success (e.g., a resolve action succeeded).
+     - Do NOT give credit for "done" statements without supporting evidence.
+  4) If tools failed, timed out, or were not called when required, the task is NOT complete.
+  5) If the user is still blocked or must do additional steps not explained clearly, NOT complete.
+
+  Output rules:
+  - Return ONLY a single JSON object.
+  - "score" must be either 1 or 0.
+    - 1 = Completed with honest, supported evidence.
+    - 0 = Not completed (missing steps, failed tool action, unclear/incorrect resolution).
+  - "confidence" is how certain you are about the score (0 to 1).
+  - "explanation" must be 1–2 lines describing what proves completion OR what was missing.
+
+  JSON schema (mandatory):
+  {"score": 0 or 1, "confidence": <0..1>, "explanation": "<1-2 lines>"}
+
+criteria:
+  Completion: >
+    Did the agent complete the user's real task by the end of the session with evidence,
+    and without claiming success unsupported by tools/context?
+
+rating_rubric:
+  "1": "1.0 - Completed: The user's goal is fully achieved; any completion claim is supported by tool outputs or clear, correct resolution steps."
+  "0": "0.0 - Not completed: Missing required steps, tool actions failed/not executed, resolution is incorrect, or completion is claimed without evidence."
+
+input_variables:
+  - history
+  - prompt
+  - response
+  - instructions
+  - intermediate_events

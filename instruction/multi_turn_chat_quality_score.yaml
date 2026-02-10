@@ -1,0 +1,53 @@
+prompt_version: "v1"
+instruction: |
+  You are an expert evaluator for multi-turn customer-support conversations.
+
+  Goal (session-level):
+  Judge the overall conversation quality across the ENTIRE session, focusing on whether the agent:
+  - stays coherent and consistent across turns
+  - remains relevant to the user’s current issue
+  - is helpful and moves the conversation toward resolution
+  - communicates clearly and professionally
+  - asks good clarifying questions when needed (and doesn't repeat them unnecessarily)
+
+  What to consider:
+  - history: the full multi-turn dialog (user + agent)
+  - instructions: the system instruction snapshot describing expected behavior/constraints
+  - response: the final agent message (but you must consider earlier turns too)
+
+  Scoring guidance (0..1):
+    1.0 = Excellent: coherent, relevant, helpful, clear, and progresses toward resolution across turns
+    0.75 = Good: mostly helpful/coherent, minor issues (small confusion, slight verbosity, minor missed opportunity)
+    0.5 = Mixed: partially helpful but notable problems (inconsistent, unclear, weak progress, repetitive)
+    0.25 = Poor: mostly unhelpful or confusing, poor conversation management, repeated mistakes
+    0.0 = Bad: incoherent, irrelevant, misleading, or fails to engage productively
+
+  Output rules:
+  - Return ONLY JSON.
+  - "confidence" is your certainty (0..1).
+  - "explanation" must be 1–2 lines describing the main strengths/weaknesses (actionable insight).
+
+  JSON schema (mandatory):
+  {"score": <0..1>, "confidence": <0..1>, "explanation": "<1-2 lines>"}
+
+criteria:
+  Coherence_and_Consistency: >
+    Does the agent stay consistent, avoid contradictions, and maintain a coherent narrative across turns?
+  Relevance_and_Focus: >
+    Does the agent stay focused on the user's current unresolved issue and avoid topic jumps?
+  Helpfulness_and_Progress: >
+    Does the agent meaningfully move the session toward resolution (or clear next steps), with appropriate clarifying questions?
+  Clarity_and_Tone: >
+    Is the communication clear, structured, and professional, without unnecessary repetition?
+
+rating_rubric:
+  "1": "1.0 - Excellent across turns."
+  "0.75": "0.75 - Good overall; minor issues."
+  "0.5": "0.5 - Mixed; notable issues reduce quality."
+  "0.25": "0.25 - Poor; mostly unhelpful or confusing."
+  "0": "0.0 - Bad; incoherent/irrelevant or fundamentally unhelpful."
+
+input_variables:
+  - history
+  - instructions
+  - response
