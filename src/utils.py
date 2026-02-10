@@ -70,7 +70,6 @@ def extract_confidence_and_rationale(raw_text: Any) -> Tuple[Optional[float], st
     except Exception:
         pass
 
-    # Try to find the first '{' and last '}'
     start_idx = s.find('{')
     end_idx = s.rfind('}')
     if start_idx != -1 and end_idx != -1 and end_idx > start_idx:

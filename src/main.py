@@ -38,8 +38,6 @@ def run_eval_task(
     retry_timeout: int,
 ) -> pd.DataFrame:
     vertexai.init(project=project, location=location)
-    # BYOR: No model parameter in evaluate() when dataset has 'response' column.
-    # The judge is handled by the backend evaluation service.
     task = EvalTask(
         dataset=df, 
         metrics=metric_list, 
@@ -65,7 +63,6 @@ def build_output_rows(
     for _, base in base_df.iterrows():
         issue_id = str(base["issue_id"])
         
-        # Base metadata as requested
         record = {
             "timestamp": base.get("timestamp_start"),
             "evaluation_id": gen_eval_id("session"),
@@ -74,7 +71,7 @@ def build_output_rows(
             "agent_version": base.get("agent_version"),
             "latency for evaluation": json.loads(base.get("latency_json", "{}")),
             "time_to_first_response": base.get("ttfr", 0.0),
-            "judge_total_tokens_cost": 0.0, # Placeholder (not directly provided by SDK per session)
+            "judge_total_tokens_cost": 0.0,
             "turn_count": int(base.get("turn_count", 0)),
             "count_user_msg": int(base.get("count_user_msg", 0)),
             "count_assistant_msg": int(base.get("count_assistant_msg", 0)),
@@ -87,7 +84,6 @@ def build_output_rows(
         row_main = main_idx.get(issue_id, {})
         row_ground = ground_idx.get(issue_id, {})
 
-        # Mapping for output keys (consistent with user request)
         metric_keys = {
             "safety_score": "safety_score",
             "pii_score": "pii_score",
@@ -105,8 +101,6 @@ def build_output_rows(
             if score_col in row:
                 conf, rationale = extract_confidence_and_rationale(row.get(expl_col))
                 
-                # Fetch tokens if available in SDK output table
-                # Note: Exact token reporting varies by SDK version
                 in_tokens = row.get(f"{m_id}/input_token_count") or row.get(f"{m_id}/input_tokens")
                 out_tokens = row.get(f"{m_id}/output_token_count") or row.get(f"{m_id}/output_tokens")
 

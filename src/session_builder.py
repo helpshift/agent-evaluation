@@ -65,12 +65,9 @@ def extract_tool_events(session_rows: List[Dict[str, Any]]) -> List[Dict[str, An
     return [e for e in events if isinstance(e, dict)]
 
 def compute_session_metrics(session_rows: List[Dict[str, Any]]) -> Dict[str, Any]:
-    # Message counts
     convo = build_multiturn_conversation(session_rows)
     count_user = sum(1 for m in convo if m["role"] == "user")
     count_asst = sum(1 for m in convo if m["role"] == "assistant")
-    
-    # Latency tracking
     latencies: List[float] = []
     ttfr: Optional[float] = None
     first_user_ts: Optional[dt.datetime] = None
@@ -169,7 +166,6 @@ def build_eval_dataframe(
         convo = build_multiturn_conversation(session_rows)
         transcript = conversation_to_transcript(convo)
         
-        # Session metrics (latency, turns, etc.)
         s_m = compute_session_metrics(session_rows)
 
         latest_prompt = ""
@@ -205,7 +201,6 @@ def build_eval_dataframe(
                 "instructions": agent_instruction_text or "",
                 "intermediate_events": json.dumps(events, ensure_ascii=False) if events else "",
                 "reference": "",
-                # Session-level metrics carried through
                 "turn_count": s_m["turn_count"],
                 "count_user_msg": s_m["count_user_msg"],
                 "count_assistant_msg": s_m["count_assistant_msg"],
